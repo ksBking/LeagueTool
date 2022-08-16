@@ -1,0 +1,26 @@
+{
+  "appId": "com.bking.leaguetool",
+  "productName": "LeagueTool",
+  "copyright": "Copyright © 2022 ${author}",
+  "asar": true,
+  "directories": {
+    "output": "release/${version}"
+  },
+  "files": ["dist"],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "public/favicon.ico",
+    "requestedExecutionLevel": "requireAdministrator"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowToChangeInstallationDirectory": true,
+    "artifactName": "${productName}-${version}.${ext}"
+  }
+}
