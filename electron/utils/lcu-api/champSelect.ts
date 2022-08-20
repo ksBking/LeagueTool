@@ -24,6 +24,7 @@ export async function champSelect() {
 
     await postMessage(conversationId, item);
   }
+  await postMessage(conversationId, 'LeagueTool下载地址：\nhttps://ksbking.gitee.io/league-tool/');
 }
 
 export function champSelectSession(session) {
