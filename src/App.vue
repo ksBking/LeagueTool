@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
-
-function setWnd(value: string) {
-  window.electronAPI.setWnd(value);
-}
+import { useRouter } from 'vue-router';
+const router = useRouter();
+window.electronAPI.update.onUpdateRequired((event, version) => {
+  router.replace({ name: 'update', query: { version: version } });
+});
 </script>
 
 <template>
-  <button @click="setWnd('minimize')">-</button>
-  <button @click="setWnd('close')">x</button>
-  <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about/">About</RouterLink>
-  </nav>
-  <RouterView />
+  <RouterView class="router-view" />
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.router-view {
+  width: 100%;
+  height: 100%;
+}
+</style>

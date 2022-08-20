@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'logo-LeagueTool';
+  src: url('@/assets/fonts/logo-league-tool.woff2') format('woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Alimama_ShuHeiTi_Bold';
+  src: url('@/assets/fonts/Alimama_ShuHeiTi_Bold.ttf') format('trueType');
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -14,8 +25,9 @@ body,
 }
 
 body {
-  color: rgb(0, 0, 0);
-  background: hsl(0, 0%, 15%);
+  color: #cccccc;
+  /* color: #8e8e8e; */
+  background-color: #1e1e1f;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,6 +35,7 @@ body {
 
 .drag-bar {
   -webkit-app-region: drag;
+  user-select: none;
 }
 
 .no-drag {

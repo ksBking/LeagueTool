@@ -2,12 +2,14 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": ["src/**/*"],
   "compilerOptions": {
+    "lib": ["ESNext", "DOM", "WebWorker"],
+    "target": "ESNext",
+    "module": "ESNext",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-
   "references": [
     {
       "path": "./tsconfig.config.json"

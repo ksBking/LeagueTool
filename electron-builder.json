@@ -8,19 +8,23 @@
   },
   "files": ["dist"],
   "win": {
+    "publish": {
+      "provider": "generic",
+      "url": "https://ksbking.gitee.io/league-tool/download"
+    },
     "target": [
       {
         "target": "nsis",
-        "arch": ["x64"]
+        "arch": ["x64", "ia32"]
       }
     ],
     "icon": "public/favicon.ico",
     "requestedExecutionLevel": "requireAdministrator"
   },
   "nsis": {
-    "oneClick": false,
-    "perMachine": true,
-    "allowToChangeInstallationDirectory": true,
-    "artifactName": "${productName}-${version}.${ext}"
+    "oneClick": true,
+    "perMachine": false,
+    "artifactName": "${productName}-${platform}-${arch}-${version}.${ext}",
+    "deleteAppDataOnUninstall": true
   }
 }

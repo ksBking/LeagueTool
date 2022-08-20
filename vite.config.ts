@@ -22,6 +22,7 @@ export default defineConfig({
         entry: 'electron/main.ts',
         vite: withDebug({
           build: {
+            sourcemap: 'inline',
             outDir: 'dist/electron',
           },
         }),
@@ -32,7 +33,6 @@ export default defineConfig({
         },
         vite: {
           build: {
-            // For Debug
             sourcemap: 'inline',
             outDir: 'dist/electron',
           },
@@ -44,6 +44,10 @@ export default defineConfig({
   server: {
     host: pkg.env.VITE_DEV_SERVER_HOST,
     port: pkg.env.VITE_DEV_SERVER_PORT,
+  },
+  build: {
+    target: 'esnext',
+    sourcemap: true,
   },
 });
 

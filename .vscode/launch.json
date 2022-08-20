@@ -33,7 +33,7 @@
       "port": 9229,
       "request": "attach",
       "type": "chrome",
-      "timeout": 60000
+      "timeout": 10000
     }
   ]
 }
