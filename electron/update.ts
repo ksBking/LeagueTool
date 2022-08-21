@@ -4,8 +4,7 @@ import https from 'https';
 
 export async function checkForUpdates() {
   return new Promise<boolean>(resolve => {
-    const host = '127.0.0.1';
-    fetch(`https://${host}/league-tool/updates/latest.json`, {
+    fetch(`https://ksbking.gitee.io/league-tool/updates/latest.json`, {
       agent: new https.Agent({ rejectUnauthorized: false }),
     })
       .then(res => res.text())
