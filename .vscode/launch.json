@@ -49,8 +49,8 @@
       "type": "node-terminal",
       "presentation": {
         "hidden": false,
-        "group": "docs",
-        "order": 1
+        "group": "app",
+        "order": 2
       }
     },
     {

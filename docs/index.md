@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: 立即下载
-      link: /guide/
+      link: /guide/download
     - theme: alt
       text: 查看使用方法
       link: /guide/
