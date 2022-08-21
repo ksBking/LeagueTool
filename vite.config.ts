@@ -48,6 +48,12 @@ export default defineConfig({
   build: {
     target: 'esnext',
     sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'main.html'),
+        display: path.resolve(__dirname, 'display.html'),
+      },
+    },
   },
 });
 

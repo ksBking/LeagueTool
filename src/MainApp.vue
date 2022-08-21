@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import MainHeader from './MainHeader.vue';
-import MainSide from './MainSide.vue';
+import MainHeader from './views/MainHeader.vue';
+import MainSide from './views/MainSide.vue';
 
 const wndActive = ref(true);
 window.electronAPI.mainWnd.onWndStatus((event, status) => {
@@ -34,6 +34,8 @@ window.electronAPI.mainWnd.onWndStatus((event, status) => {
 <style lang="scss">
 .main-view {
   display: flex;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 

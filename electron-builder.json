@@ -8,14 +8,10 @@
   },
   "files": ["dist"],
   "win": {
-    "publish": {
-      "provider": "generic",
-      "url": "https://ksbking.gitee.io/league-tool/download"
-    },
     "target": [
       {
         "target": "nsis",
-        "arch": ["x64", "ia32"]
+        "arch": ["x64"]
       }
     ],
     "icon": "public/favicon.ico",

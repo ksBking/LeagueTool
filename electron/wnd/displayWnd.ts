@@ -27,7 +27,8 @@ export function createDisplayWnd(phase: string) {
     },
   });
 
-  win.once('ready-to-show', () => {
+  win.webContents.once('did-finish-load', () => {
+    win?.webContents.send('display-wnd-redirect', phase);
     win?.show();
   });
 
@@ -36,9 +37,9 @@ export function createDisplayWnd(phase: string) {
   });
 
   if (app.isPackaged) {
-    win.loadFile(path.join(__dirname, `../index.html/#/display/${phase}`));
+    win.loadFile(path.join(__dirname, `../display.html`));
   } else {
-    win.loadURL(`http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}/#/display/${phase}`);
+    win.loadURL(`http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}/display.html`);
   }
 
   ipcMain.on('display-wnd-set', (event, value) => {
@@ -59,16 +60,12 @@ export function createDisplayWnd(phase: string) {
     }
   });
 
-  ipcMain.on('display-wnd-close', () => win?.close);
+  ipcMain.addListener('display-wnd-close', () => win?.close());
 }
 
-ipcMain.on('display-wnd-show', (event, phase) => {
+ipcMain.addListener('display-wnd-show', phase => {
   if (win) {
-    if (app.isPackaged) {
-      win.loadFile(path.join(__dirname, `../index.html/#/display/${phase}`));
-    } else {
-      win.loadURL(`http://${process.env['VITE_DEV_SERVER_HOST']}:${process.env['VITE_DEV_SERVER_PORT']}/#/display/${phase}`);
-    }
+    win.webContents.send('display-wnd-redirect', phase);
     win.show();
   } else {
     createDisplayWnd(phase);

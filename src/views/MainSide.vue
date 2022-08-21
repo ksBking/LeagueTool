@@ -7,41 +7,41 @@
     <div class="menu">
       <div class="menu-item">
         <div class="menu-title">主页{{ lcuPhase ? lcuPhase : '离线' }}</div>
-        <router-link class="menu-href" :to="{ name: 'mainOverview' }">
+        <router-link class="menu-href" :to="{ name: 'Overview' }">
           <IconOverView />
           <span>总览</span>
         </router-link>
-        <router-link class="menu-href" :to="{ name: 'test' }">
+        <router-link class="menu-href" :to="{ name: 'Test' }">
           <IconTest />
           <span>测试</span>
         </router-link>
       </div>
       <div class="menu-item">
         <div class="menu-title">功能</div>
-        <router-link class="menu-href" :to="{ name: 'mainAutoMatch' }">
+        <router-link class="menu-href" :to="{ name: 'AutoMatch' }">
           <IconAutoMatch />
           <span>自动对局</span>
         </router-link>
-        <router-link class="menu-href" :to="{ name: 'mainPickAndBan' }">
+        <router-link class="menu-href" :to="{ name: 'PickAndBan' }">
           <IconPickAndBan />
           <span>选禁英雄</span>
         </router-link>
-        <router-link class="menu-href" :to="{ name: 'mainAutoConfig' }">
+        <router-link class="menu-href" :to="{ name: 'AutoConfig' }">
           <IconAutoConfig />
           <span>自动配置</span>
         </router-link>
       </div>
       <div class="menu-item">
         <div class="menu-title">其他</div>
-        <router-link class="menu-href" :to="{ name: 'mainSponsorMe' }">
+        <router-link class="menu-href" :to="{ name: 'SponsorMe' }">
           <IconSponsorMe />
           <span>赞助</span>
         </router-link>
-        <router-link class="menu-href" :to="{ name: 'mainFeedBack' }">
+        <router-link class="menu-href" :to="{ name: 'FeedBack' }">
           <IconFeedBack />
           <span>反馈与帮助</span>
         </router-link>
-        <router-link class="menu-href" :to="{ name: 'mainAboutMe' }">
+        <router-link class="menu-href" :to="{ name: 'AboutMe' }">
           <IconAboutMe />
           <span>关于</span>
         </router-link>
@@ -67,7 +67,6 @@ const props = defineProps<{
 
 const lcuPhase: Ref<string | null> = ref(null);
 window.electronAPI.mainWnd.onLcuPhase((event, phase) => {
-  console.log(phase);
   lcuPhase.value = phase;
 });
 window.electronAPI.mainWnd.getLcuPhase();

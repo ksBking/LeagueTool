@@ -13,9 +13,14 @@
     <RouterView class="display-router-view" />
   </div>
 </template>
-
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import IconClose from '@/components/icons/IconClose.vue';
+
+const router = useRouter();
+window.electronAPI.displayWnd.onRedirect((event, phase) => {
+  router.replace({ name: phase });
+});
 
 function setWnd(value: 'close') {
   window.electronAPI.displayWnd.setWnd(value);
@@ -26,6 +31,9 @@ function setWnd(value: 'close') {
 .display-view {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 
   .display-header {
     display: flex;
