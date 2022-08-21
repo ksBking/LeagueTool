@@ -1,7 +1,4 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "compounds": [
     {
@@ -10,7 +7,7 @@
       "configurations": ["Debug Main Process", "Debug Renderer Process"],
       "presentation": {
         "hidden": false,
-        "group": "",
+        "group": "app",
         "order": 1
       },
       "stopAll": true
@@ -26,14 +23,46 @@
         "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
       },
       "runtimeArgs": ["--remote-debugging-port=9229", "."],
-      "envFile": "${workspaceFolder}/.vscode/.debug.env"
+      "envFile": "${workspaceFolder}/.vscode/.debug.env",
+      "presentation": {
+        "hidden": true,
+        "group": "app",
+        "order": 1
+      }
     },
     {
       "name": "Debug Renderer Process",
       "port": 9229,
       "request": "attach",
       "type": "chrome",
-      "timeout": 60000
+      "timeout": 60000,
+      "presentation": {
+        "hidden": true,
+        "group": "app",
+        "order": 1
+      }
+    },
+    {
+      "command": "pnpm docs:dev",
+      "name": "Run docs:dev",
+      "request": "launch",
+      "type": "node-terminal",
+      "presentation": {
+        "hidden": false,
+        "group": "docs",
+        "order": 1
+      }
+    },
+    {
+      "command": "pnpm docs:build",
+      "name": "Run docs:build",
+      "request": "launch",
+      "type": "node-terminal",
+      "presentation": {
+        "hidden": false,
+        "group": "docs",
+        "order": 2
+      }
     }
   ]
 }
