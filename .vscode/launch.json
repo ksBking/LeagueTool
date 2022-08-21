@@ -43,6 +43,17 @@
       }
     },
     {
+      "command": "pnpm build",
+      "name": "Build App",
+      "request": "launch",
+      "type": "node-terminal",
+      "presentation": {
+        "hidden": false,
+        "group": "docs",
+        "order": 1
+      }
+    },
+    {
       "command": "pnpm docs:dev",
       "name": "Run docs:dev",
       "request": "launch",
