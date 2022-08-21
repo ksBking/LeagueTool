@@ -1,13 +1,7 @@
 # 下载
 
-## 版本：v{{data['version']}}
+## 版本：v0.0.0
 
-<ul>
-  <li v-for="(item, index) in data['download']" :key="index">
-    <a :href="item['url']" target="_blank">{{ item['name'] }}</a>
-  </li>
-</ul>
-
-<script setup>
-import data from '../updates/latest.json';
-</script>
+- [蓝奏云（密码：lol）](https://wwc.lanzouy.com/b01duyc7i)
+- [奶牛快传](https://cowtransfer.com/s/3e2f7ef944104d)
+- [123 云盘](https://www.123pan.com/s/bQNRVv-U3mq3)
