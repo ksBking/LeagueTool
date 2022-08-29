@@ -9,6 +9,10 @@ interface Window {
       onLcuPhase(cb: (event: Electron.IpcRendererEvent, phase: string | null) => void);
       getGameNotice: () => void;
       onGameNotice(cb: (event: Electron.IpcRendererEvent, data: any) => void);
+      getNotice: () => void;
+      onNotice(cb: (event: Electron.IpcRendererEvent, data: any) => void);
+      getSponsors: () => void;
+      onSponsors(cb: (event: Electron.IpcRendererEvent, data: any) => void);
     };
     displayWnd: {
       setWnd: (value: 'close') => void;

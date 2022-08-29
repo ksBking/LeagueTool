@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 
 export async function checkForUpdates() {
   return new Promise<boolean>(resolve => {
-    fetch('https://ksbking.gitee.io/league-tool/updates/latest.json', {
+    fetch('https://ksbking.gitee.io/data/league-tool/latest.json', {
       agent: new https.Agent({ rejectUnauthorized: false }),
     })
       .then(res => res.text())

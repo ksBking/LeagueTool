@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
-import { getGameNotice } from '../utils/data-api';
+import { getGameNotice, getNotice, getSponsors } from '../utils/data-api';
 
 let win: BrowserWindow | null = null;
 const iconPath = path.join(__dirname, app.isPackaged ? '../favicon.ico' : '../../public/favicon.ico');
@@ -63,6 +63,15 @@ export function createMainWnd() {
   ipcMain.on('get-game-notice', async () => {
     const data = await getGameNotice();
     win?.webContents.send('game-notice', data);
+  });
+
+  ipcMain.on('get-notice', async () => {
+    const data = await getNotice();
+    win?.webContents.send('notice', data);
+  });
+  ipcMain.on('get-sponsors', async () => {
+    const data = await getSponsors();
+    win?.webContents.send('sponsors', data);
   });
 }
 

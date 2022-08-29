@@ -8,6 +8,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
     onLcuPhase: (cb: (event: IpcRendererEvent, phase: string | null) => void) => ipcRenderer.on('lcu-phase', cb),
     getGameNotice: () => ipcRenderer.send('get-game-notice'),
     onGameNotice: (cb: (event: IpcRendererEvent, data: any) => void) => ipcRenderer.on('game-notice', cb),
+    getNotice: () => ipcRenderer.send('get-notice'),
+    onNotice: (cb: (event: IpcRendererEvent, data: any) => void) => ipcRenderer.on('notice', cb),
+    getSponsors: () => ipcRenderer.send('get-sponsors'),
+    onSponsors: (cb: (event: IpcRendererEvent, data: any) => void) => ipcRenderer.on('sponsors', cb),
   },
   displayWnd: {
     setWnd: (value: 'close') => ipcRenderer.send('display-wnd-set', value),

@@ -1,5 +1,6 @@
 <template>
   <div class="test-view">
+    以下内容无任何功能。
     <Suspense>
       <TestFetch />
       <template #fallback><LoadingView /></template>

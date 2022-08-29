@@ -32,8 +32,8 @@
             <span>金额</span>
             <span>时间</span>
           </div>
-          <li class="list-row" v-for="(item, index) in items" :key="index">
-            <span>{{ items.length - index }}</span>
+          <li class="list-row" v-for="(item, index) in sponsors" :key="index">
+            <span>{{ sponsors.length - index }}</span>
             <span>{{ item.name }}</span>
             <span>{{ item.mode }}</span>
             <span>{{ item.amount }}</span>
@@ -46,16 +46,15 @@
 </template>
 
 <script lang="ts" setup>
+import { reactive } from 'vue';
+
 const slogan = '打赏 ￥0.01 代表你来过；打赏 ￥0.99 感谢对我们的支持；打赏 ￥1.88 一路发发发；打赏 ￥6.66 祝老板排位把把有大爹；打赏 ￥8.88 祝老板把把MVP上大分！';
-const data = [
-  {
-    name: '会飞的狗头',
-    mode: '微信',
-    amount: 0.01,
-    time: '2022-08-21',
-  },
-];
-const items = data.reverse();
+const sponsors: any[] = reactive([]);
+
+window.electronAPI.mainWnd.onSponsors((event, data) => {
+  sponsors.push(...data.reverse());
+});
+window.electronAPI.mainWnd.getSponsors();
 </script>
 
 <style lang="scss">
