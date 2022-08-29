@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts" setup>
-const slogan = '打赏 ￥0.01 代表你来过；打赏 ￥0.5 请作者吃雪莲（雪糕）；打赏 ￥0.99 感谢对我们的支持；打赏 ￥1.88 代表一路发发发；打赏 ￥6.66 祝老板排位把把有大爹；打赏 ￥8.88 祝老板把把MVP上大分！';
+const slogan = '打赏 ￥0.01 代表你来过；打赏 ￥0.99 感谢对我们的支持；打赏 ￥1.88 一路发发发；打赏 ￥6.66 祝老板排位把把有大爹；打赏 ￥8.88 祝老板把把MVP上大分！';
 const data = [
   {
     name: '会飞的狗头',
@@ -83,7 +83,7 @@ const items = data.reverse();
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(45deg, #00ffea, #6673ff);
+        background-image: linear-gradient(45deg, #00ffea, #4d5bff);
 
         &::after {
           content: attr(text);
@@ -92,7 +92,7 @@ const items = data.reverse();
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          background-image: linear-gradient(45deg, #00ffea, #6673ff);
+          background-image: linear-gradient(45deg, #00ffea, #4d5bff);
         }
 
         @keyframes marquee {
@@ -133,7 +133,7 @@ const items = data.reverse();
         height: 50%;
 
         img {
-          border-radius: 8px;
+          border-radius: 4px;
         }
       }
 
@@ -191,9 +191,6 @@ const items = data.reverse();
           }
           :nth-child(4) {
             flex: 1;
-            &::before {
-              content: '🧧';
-            }
           }
           :nth-child(5) {
             flex: 2;

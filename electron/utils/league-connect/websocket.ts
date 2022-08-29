@@ -26,7 +26,7 @@ export class LeagueWebSocket extends WebSocket {
     });
   }
 
-  public subscribe(path: string, effect: (data: never, res?: never) => void) {
+  public subscribe(path: string, effect: (data: any, res?: any) => void) {
     if (!this.subscriptions.has(path)) {
       this.subscriptions.set(path, [effect]);
     } else {

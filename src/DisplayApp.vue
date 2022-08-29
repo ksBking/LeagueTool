@@ -90,7 +90,7 @@ function setWnd(value: 'close') {
         }
         &:hover {
           .icon path {
-            fill: #6673ff;
+            fill: #4d5bff;
           }
         }
       }

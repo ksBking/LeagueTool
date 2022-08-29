@@ -9,6 +9,16 @@
   font-display: swap;
 }
 
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #4d5bff;
+  border-radius: 6px;
+}
+
 *,
 *::before,
 *::after {

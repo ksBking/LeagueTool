@@ -40,13 +40,13 @@ window.electronAPI.mainWnd.onWndStatus((event, status) => {
 }
 
 .main-side {
-  width: 210px;
+  width: 200px;
   height: 100%;
   background-color: #171718;
 }
 
 .main-content {
-  width: calc(100% - 210px);
+  width: calc(100% - 200px);
   height: 100%;
 
   .main-header {
@@ -61,17 +61,13 @@ window.electronAPI.mainWnd.onWndStatus((event, status) => {
   }
 }
 
-.fade-enter-active {
-  transition: all 0.2s ease-out;
-}
-
+.fade-enter-active,
 .fade-leave-active {
-  transition: all 0.5s;
+  transition: opacity 0.5s;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  transform: translateX(8px);
   opacity: 0;
 }
 </style>

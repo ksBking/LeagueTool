@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen, ipcMain, dialog } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain, screen } from 'electron';
 import path from 'path';
 
 let win: BrowserWindow | null = null;
@@ -45,7 +45,7 @@ export function createDisplayWnd(phase: string) {
   ipcMain.on('display-wnd-set', (event, value) => {
     if (value === 'close') {
       dialog
-        .showMessageBox(win as never, {
+        .showMessageBox(win as any, {
           message: '您确定要关闭吗？关闭后客户端状态改变时会重新打开此窗口。',
           type: 'warning',
           buttons: ['取消', '确定'],

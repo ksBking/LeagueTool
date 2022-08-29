@@ -13,15 +13,10 @@ async function getSummonerById(summonerId) {
 }
 
 export async function champSelect() {
-  //
-  if (!config.session) {
-    config.session = await getChampSelectSession();
-  }
-  const conversationId = await getConversationId();
+  if (!config.session) config.session = await getChampSelectSession();
+  const conversationId = await getChampionSelectConversationId();
   const info = await getInfo(config.session);
   for (const item of formatInfo(info)) {
-    console.log(item);
-
     await postMessage(conversationId, item);
   }
   await postMessage(conversationId, 'LeagueTool下载地址：\nhttps://ksbking.gitee.io/league-tool/');
@@ -30,17 +25,10 @@ export async function champSelect() {
 export function champSelectSession(session) {
   console.log(session);
   config.session = session;
-  //
 }
 
 async function getChampSelectSession() {
-  const { data } = await createHttpRequest(
-    {
-      url: '/lol-champ-select/v1/session',
-    },
-    lcu.credentials
-  );
-  console.log(data);
+  const { data } = await createHttpRequest({ url: '/lol-champ-select/v1/session' }, lcu.credentials);
   return data;
 }
 
@@ -122,17 +110,19 @@ function mergeRankedStats(arr, rankedStats) {
   });
 }
 
-async function getConversationId() {
-  return new Promise<void>((resolve, reject) => {
+async function getChampionSelectConversationId() {
+  return new Promise<void>(resolve => {
     const interval = setInterval(async () => {
       // 防止 client 正在启动时，导致初始化失败
-      const {
-        data: [{ id }],
-      } = await createHttpRequest({ url: '/lol-chat/v1/conversations' }, lcu.credentials);
-      if (id) {
-        clearInterval(interval);
-      }
-      resolve(id);
+      const { data } = await createHttpRequest({ url: '/lol-chat/v1/conversations' }, lcu.credentials);
+      data.some(item => {
+        console.log(item);
+        if (item.type === 'championSelect') {
+          clearInterval(interval);
+          resolve(item.id);
+          return true;
+        }
+      });
     }, 1000);
   });
 }

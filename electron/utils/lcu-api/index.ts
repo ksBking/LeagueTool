@@ -1,7 +1,7 @@
-import { LeagueClient, type Credentials, createWebSocketConnection, createHttpRequest } from '../league-connect';
 import { ipcMain } from 'electron';
-import { champSelect, champSelectSession } from './champSelect';
 import '../../wnd/displayWnd';
+import { createHttpRequest, createWebSocketConnection, LeagueClient, type Credentials } from '../league-connect';
+import { champSelect, champSelectSession } from './champSelect';
 
 interface lcu {
   credentials: Credentials;
@@ -81,6 +81,16 @@ async function initPhase(credentials: Credentials) {
 async function initSocket(credentials: Credentials) {
   console.log('初始化 LcuApi: new ws');
   const ws = await createWebSocketConnection(credentials);
+  ws.on('message', (binary: Buffer) => {
+    if (binary.length) {
+      try {
+        // const [, , res] = JSON.parse(binary.toString());
+        // console.log(res);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  });
   ws.subscribe('/lol-gameflow/v1/gameflow-phase', phase => {
     phaseChange(phase);
   });

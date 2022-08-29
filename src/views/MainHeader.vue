@@ -56,7 +56,7 @@ const props = defineProps({
       }
       &:hover {
         .icon path {
-          fill: #6673ff;
+          fill: #4d5bff;
         }
       }
     }

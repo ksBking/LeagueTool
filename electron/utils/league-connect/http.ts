@@ -4,7 +4,7 @@ import type { Credentials } from './authentication.js';
 interface options {
   url: string;
   method?: string;
-  body?: unknown;
+  body?: any;
 }
 
 interface res {
@@ -33,7 +33,7 @@ export async function createHttpRequest(options: options, credentials: Credentia
         res.on('data', (data: Buffer) => chuck.push(data));
 
         res.on('end', () => {
-          console.log('callAPI :>> ', options, JSON.parse(Buffer.concat(chuck).toString()));
+          console.log('callAPI :', options, JSON.parse(Buffer.concat(chuck).toString()));
           resolve({
             msg: res.statusMessage,
             status: res.statusCode,

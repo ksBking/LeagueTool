@@ -1,6 +1,6 @@
 import { app, dialog, shell } from 'electron';
-import fetch from 'node-fetch';
 import https from 'https';
+import fetch from 'node-fetch';
 
 export async function checkForUpdates() {
   return new Promise<boolean>(resolve => {

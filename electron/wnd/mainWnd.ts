@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
+import { getGameNotice } from '../utils/data-api';
 
 let win: BrowserWindow | null = null;
 const iconPath = path.join(__dirname, app.isPackaged ? '../favicon.ico' : '../../public/favicon.ico');
@@ -57,6 +58,11 @@ export function createMainWnd() {
 
   ipcMain.addListener('main-wnd-lcu-phase', phase => {
     win?.webContents.send('lcu-phase', phase);
+  });
+
+  ipcMain.on('get-game-notice', async () => {
+    const data = await getGameNotice();
+    win?.webContents.send('game-notice', data);
   });
 }
 

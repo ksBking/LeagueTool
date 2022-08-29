@@ -7,6 +7,8 @@ interface Window {
       onWndStatus: (cb: (event: Electron.IpcRendererEvent, status: 'blur' | 'focus') => void) => void;
       getLcuPhase();
       onLcuPhase(cb: (event: Electron.IpcRendererEvent, phase: string | null) => void);
+      getGameNotice: () => void;
+      onGameNotice(cb: (event: Electron.IpcRendererEvent, data: any) => void);
     };
     displayWnd: {
       setWnd: (value: 'close') => void;
