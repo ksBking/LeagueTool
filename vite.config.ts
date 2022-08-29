@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath, URL } from 'node:url';
-import { type Plugin, type UserConfig, defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import fs from 'fs';
+import { fileURLToPath, URL } from 'node:url';
+import path from 'path';
+import { defineConfig, type Plugin, type UserConfig } from 'vite';
 import electron from 'vite-plugin-electron';
 import pkg from './package.json';
 

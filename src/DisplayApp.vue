@@ -14,8 +14,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import IconClose from '@/components/icons/IconClose.vue';
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 window.electronAPI.displayWnd.onRedirect((event, phase) => {
@@ -30,15 +30,15 @@ function setWnd(value: 'close') {
 <style lang="scss">
 .display-view {
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  overflow: hidden;
 
   .display-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 0 8px;
     width: 100%;
     height: 30px;
@@ -47,8 +47,8 @@ function setWnd(value: 'close') {
 
     .logo {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       height: 100%;
 
       img {
@@ -58,29 +58,30 @@ function setWnd(value: 'close') {
 
       span {
         margin: 0 4px;
-        font-family: 'logo-LeagueTool';
-        font-size: 14px;
         background-image: linear-gradient(45deg, #00e6d2, #4d5bff);
-        background-clip: text;
         -webkit-background-clip: text;
+        background-clip: text;
+        font-size: 14px;
+        font-family: 'logo-LeagueTool';
+
         -webkit-text-fill-color: transparent;
       }
     }
 
     .title {
-      font-size: 12px;
       overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       color: #d1d1d1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 12px;
     }
 
     .menu {
       display: flex;
       .menu-item {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         width: 16px;
         height: 16px;
         border-radius: 4px;

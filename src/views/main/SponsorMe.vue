@@ -68,31 +68,33 @@ const items = data.reverse();
     height: 100px;
 
     .marquee {
-      width: 100%;
       overflow: hidden;
+      width: 100%;
 
       .text {
         position: relative;
         padding-left: 50px;
         width: fit-content;
-        white-space: nowrap;
-        animation: marquee 20s linear infinite;
-        user-select: none;
-        font-family: 'Alimama_ShuHeiTi_Bold';
-        font-size: 24px;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
         background-image: linear-gradient(45deg, #00ffea, #4d5bff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        white-space: nowrap;
+        font-size: 24px;
+        font-family: 'Alimama_ShuHeiTi_Bold';
+        animation: marquee 20s linear infinite;
+
+        user-select: none;
+        -webkit-text-fill-color: transparent;
 
         &::after {
-          content: attr(text);
           position: absolute;
           right: -100%;
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
           background-image: linear-gradient(45deg, #00ffea, #4d5bff);
+          -webkit-background-clip: text;
+          background-clip: text;
+          content: attr(text);
+
+          -webkit-text-fill-color: transparent;
         }
 
         @keyframes marquee {
@@ -109,8 +111,8 @@ const items = data.reverse();
     .title {
       margin: 16px 0;
       text-align: center;
-      font-family: 'Alimama_ShuHeiTi_Bold';
       font-size: 24px;
+      font-family: 'Alimama_ShuHeiTi_Bold';
     }
   }
 
@@ -121,10 +123,10 @@ const items = data.reverse();
 
     .primary {
       display: flex;
+      overflow: hidden;
       flex-direction: column;
       width: 60%;
       height: 100%;
-      overflow: hidden;
 
       .qrcode {
         display: flex;
@@ -138,9 +140,9 @@ const items = data.reverse();
       }
 
       .description {
+        padding: 16px 0;
         width: 100%;
         height: 50%;
-        padding: 16px 0;
         font-size: 14px;
       }
     }
@@ -148,33 +150,33 @@ const items = data.reverse();
     .roster {
       display: flex;
       flex-direction: column;
-      height: 100%;
       width: 40%;
+      height: 100%;
 
       .title {
         margin-bottom: 8px;
         text-align: center;
-        font-family: 'Alimama_ShuHeiTi_Bold';
         font-size: 20px;
+        font-family: 'Alimama_ShuHeiTi_Bold';
       }
 
       .list-header {
         position: sticky;
         top: 0;
-        font-family: 'Alimama_ShuHeiTi_Bold';
-        font-size: 16px;
-        background-color: #1e1e1f;
         padding: 8px 0;
+        background-color: #1e1e1f;
+        font-size: 16px;
+        font-family: 'Alimama_ShuHeiTi_Bold';
       }
 
       .list {
-        padding: 0;
         overflow-y: auto;
+        padding: 0;
         list-style: none;
 
         .list-row {
-          margin-bottom: 8px;
           display: flex;
+          margin-bottom: 8px;
           text-align: center;
           white-space: nowrap;
 
@@ -182,8 +184,8 @@ const items = data.reverse();
             flex: 1;
           }
           :nth-child(2) {
-            flex: 3;
             overflow: hidden;
+            flex: 3;
             text-overflow: ellipsis;
           }
           :nth-child(3) {
@@ -198,8 +200,8 @@ const items = data.reverse();
         }
 
         li {
-          font-size: 14px;
           text-align: center;
+          font-size: 14px;
         }
       }
     }

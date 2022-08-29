@@ -23,13 +23,13 @@
 
 <style lang="scss">
 .loading {
-  z-index: -1;
   position: absolute;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  left: 50%;
+  z-index: -1;
   width: 100%;
   height: 100%;
+  transform: translate(-50%, -50%);
 
   .body {
     position: absolute;
@@ -38,22 +38,22 @@
     animation: speeder 0.4s linear infinite;
 
     > span {
-      height: 5px;
-      width: 35px;
-      background: #4d5bff;
       position: absolute;
       top: -19px;
       left: 60px;
+      width: 35px;
+      height: 5px;
       border-radius: 2px 10px 1px 0;
+      background: #4d5bff;
 
       > span:nth-child(1),
       > span:nth-child(2),
       > span:nth-child(3),
       > span:nth-child(4) {
+        position: absolute;
         width: 30px;
         height: 1px;
         background: #4d5bff;
-        position: absolute;
         animation: fazer1 0.2s linear infinite;
       }
 
@@ -125,50 +125,50 @@
         border-bottom: 6px solid transparent;
 
         &:before {
-          content: '';
-          height: 22px;
+          position: absolute;
+          top: -16px;
+          right: -110px;
           width: 22px;
+          height: 22px;
           border-radius: 50%;
           background: #4d5bff;
-          position: absolute;
-          right: -110px;
-          top: -16px;
+          content: '';
         }
 
         &:after {
-          content: '';
           position: absolute;
+          top: -16px;
+          right: -98px;
           width: 0;
           height: 0;
           border-top: 0 solid transparent;
           border-right: 55px solid #4d5bff;
           border-bottom: 16px solid transparent;
-          top: -16px;
-          right: -98px;
+          content: '';
         }
       }
 
       .face {
         position: absolute;
-        height: 12px;
-        width: 20px;
-        background: #4d5bff;
-        border-radius: 20px 20px 0 0;
-        transform: rotate(-40deg);
-        right: -125px;
         top: -15px;
+        right: -125px;
+        width: 20px;
+        height: 12px;
+        border-radius: 20px 20px 0 0;
+        background: #4d5bff;
+        transform: rotate(-40deg);
 
         &:after {
-          content: '';
-          height: 12px;
-          width: 12px;
-          background: #4d5bff;
-          right: 4px;
-          top: 7px;
           position: absolute;
+          top: 7px;
+          right: 4px;
+          width: 12px;
+          height: 12px;
+          border-radius: 0 0 0 2px;
+          background: #4d5bff;
+          content: '';
           transform: rotate(40deg);
           transform-origin: 50% 50%;
-          border-radius: 0 0 0 2px;
         }
       }
     }

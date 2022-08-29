@@ -8,6 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-import TestFetch from './TestFetch.vue';
 import LoadingView from '@/components/LoadingView.vue';
+import TestFetch from './TestFetch.vue';
 </script>

@@ -5,7 +5,7 @@
         <div class="img-list">
           <transition-group name="promo">
             <a class="item" v-show="index === promoCurrentIndex" :href="formatURL(item.adUrl)" :title="item.ad_memo" target="_blank" v-for="(item, index) in promoList" :key="item.actionID">
-              <img :src="item.imgUrl" :alt="item.Fname" />
+              <img :src="formatURL(item.imgUrl)" :alt="item.Fname" />
             </a>
           </transition-group>
         </div>
@@ -18,14 +18,14 @@
       <div class="news">
         <div class="champions">
           <a class="item" href="" target="_blank">
-            <img src="//ossweb-img.qq.com/upload/adw/image/977/20220825/8db7d150219aa82a1fc20081a96b2ca7.webp" alt="" />
+            <img src="http://ossweb-img.qq.com/upload/adw/image/977/20220825/8db7d150219aa82a1fc20081a96b2ca7.webp" alt="" />
             <div class="cover">
               <div class="title">兽灵行者 乌迪尔</div>
               <div class="sub">他踏寒风而来，在平衡与纷争中探寻弗雷尔卓德的未来</div>
             </div>
           </a>
           <a class="item" href="" target="_blank">
-            <img src="//ossweb-img.qq.com/upload/adw/image/977/20220825/8db7d150219aa82a1fc20081a96b2ca7.webp" alt="" />
+            <img src="http://ossweb-img.qq.com/upload/adw/image/977/20220825/8db7d150219aa82a1fc20081a96b2ca7.webp" alt="" />
             <div class="cover">
               <div class="title">兽灵行者 乌迪尔</div>
               <div class="sub">他踏寒风而来，在平衡与纷争中探寻弗雷尔卓德的未来</div>
@@ -187,27 +187,27 @@ function formatNoticeTime(time: string) {
 
   .primary {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     width: 820px;
     height: 100%;
-    overflow: hidden;
 
     .promo {
       display: flex;
-      flex-direction: column;
-      border-radius: 4px;
       overflow: hidden;
+      flex-direction: column;
       width: 820px;
       height: 370px;
+      border-radius: 4px;
       .img-list {
         position: relative;
+        overflow: hidden;
         width: 820px;
         height: 340px;
-        overflow: hidden;
         .item {
           position: absolute;
-          left: 0;
           top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
           img {
@@ -232,20 +232,20 @@ function formatNoticeTime(time: string) {
         background-color: #171718;
         .item {
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
           width: 100%;
           transition: background-color 0.15s;
           span {
-            white-space: nowrap;
-            text-overflow: ellipsis;
             overflow: hidden;
-            font-size: 14px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             letter-spacing: 1px;
+            font-size: 14px;
           }
           &.selected {
-            color: #d1d1d1;
             background-color: #4d5bff;
+            color: #d1d1d1;
           }
         }
       }
@@ -253,20 +253,19 @@ function formatNoticeTime(time: string) {
 
     .news {
       display: flex;
+      padding-top: 8px;
       width: 100%;
       height: calc(100% - 370px);
-      padding-top: 8px;
 
       .champions {
         display: flex;
+        overflow: hidden;
         flex-direction: column;
         height: 100%;
-        overflow: hidden;
         .item {
           position: relative;
           display: flex;
           justify-content: center;
-
           width: 100%;
           color: #cccccc;
           &:first-child {
@@ -281,25 +280,25 @@ function formatNoticeTime(time: string) {
           }
           .cover {
             position: absolute;
-            left: 0;
             top: 0;
+            left: 0;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            padding: 4px;
             width: 100%;
             height: 100%;
-            padding: 4px;
-            background-image: linear-gradient(to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.6));
             border-width: thin;
             border-style: solid;
             border-image: linear-gradient(180deg, #ebe1c8, #b98b30) 1 stretch;
+            background-image: linear-gradient(to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.6));
             .title {
-              font-size: 14px;
               color: #cdbe91;
+              font-size: 14px;
             }
             .sub {
-              font-size: 12px;
               color: #9d9c9c;
+              font-size: 12px;
             }
           }
         }
@@ -309,35 +308,35 @@ function formatNoticeTime(time: string) {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 300px;
-        height: 100%;
         margin-left: 8px;
         padding-bottom: 4px;
-        border-radius: 4px;
+        width: 300px;
+        height: 100%;
         border: 1px solid hsla(0, 0%, 100%, 0.05);
+        border-radius: 4px;
         background-color: #1e1e1f;
         .notice-title {
-          width: 100%;
           padding: 4px 0;
-          font-size: 14px;
-          text-align: center;
+          width: 100%;
           background-color: #232324;
+          text-align: center;
+          font-size: 14px;
         }
         .item {
           display: flex;
-          text-decoration: none;
           justify-content: space-between;
           padding: 4px 8px;
-          font-size: 14px;
           color: #cccccc;
+          text-decoration: none;
+          font-size: 14px;
           transition: background-color 0.15s;
           &:hover {
             background-color: #232324;
           }
           .title {
-            white-space: nowrap;
-            text-overflow: ellipsis;
             overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
           .time {
             white-space: nowrap;
@@ -351,19 +350,19 @@ function formatNoticeTime(time: string) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0 8px;
     width: calc(100% - 820px - 160px);
     height: 100%;
-    padding: 0 8px;
     .item {
       display: inline-block;
       padding: 4px;
-      text-align: center;
-      font-size: 12px;
-      text-decoration: none;
-      border-radius: 4px;
       border: 1px solid hsla(0, 0%, 100%, 0.05);
+      border-radius: 4px;
       background-color: #1e1e1f;
       color: #cccccc;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
       transition: background-color 0.15s;
       &:hover {
         background-color: #232324;
@@ -375,62 +374,62 @@ function formatNoticeTime(time: string) {
   }
 
   .activity {
+    overflow: auto;
+    padding-right: 4px;
     width: 160px;
     height: 100%;
-    padding-right: 4px;
-    overflow: auto;
     .item {
       position: relative;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin-bottom: 8px;
-      border-radius: 4px;
       overflow: hidden;
-      text-decoration: none;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 8px;
+      width: 100%;
+      border-radius: 4px;
       color: #cccccc;
+      text-decoration: none;
       &:last-child {
         margin-bottom: 0;
       }
       img {
+        margin: 0;
         width: 100%;
         height: auto;
-        margin: 0;
       }
       .cuntdown {
         position: absolute;
         top: 4px;
         right: 4px;
         padding: 0 4px;
-        font-size: 12px;
         border-radius: 4px;
         background-color: #a47d33;
         color: #fff;
+        font-size: 12px;
       }
       .cover {
         position: absolute;
-        left: 0;
         top: 0;
+        left: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        padding: 4px;
         width: 100%;
         height: 100%;
-        padding: 4px;
-        opacity: 0;
         background-color: hsla(0, 0%, 0%, 0.8);
+        opacity: 0;
         transition: opacity 0.15s;
         .title {
           margin-bottom: 8px;
+          color: #cdbe91;
           text-align: center;
           font-size: 14px;
-          color: #cdbe91;
         }
         .sub {
+          color: #9d9c9c;
           text-align: center;
           font-size: 12px;
-          color: #9d9c9c;
         }
       }
       &:hover {

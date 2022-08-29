@@ -6,7 +6,7 @@
     </div>
     <div class="menu">
       <div class="menu-item">
-        <div class="menu-title">主页{{ lcuPhase ? lcuPhase : '离线' }}</div>
+        <div class="menu-title">主页</div>
         <router-link class="menu-href" :to="{ name: 'Overview' }">
           <IconOverView />
           <span>总览</span>
@@ -51,15 +51,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
-import IconOverView from '@/components/icons/IconOverView.vue';
-import IconTest from '@/components/icons/IconTest.vue';
-import IconAutoMatch from '@/components/icons/IconAutoMatch.vue';
-import IconPickAndBan from '@/components/icons/IconPickAndBan.vue';
-import IconAutoConfig from '@/components/icons/IconAutoConfig.vue';
-import IconSponsorMe from '@/components/icons/IconSponsorMe.vue';
-import IconFeedBack from '@/components/icons/IconFeedBack.vue';
 import IconAboutMe from '@/components/icons/IconAboutMe.vue';
+import IconAutoConfig from '@/components/icons/IconAutoConfig.vue';
+import IconAutoMatch from '@/components/icons/IconAutoMatch.vue';
+import IconFeedBack from '@/components/icons/IconFeedBack.vue';
+import IconOverView from '@/components/icons/IconOverView.vue';
+import IconPickAndBan from '@/components/icons/IconPickAndBan.vue';
+import IconSponsorMe from '@/components/icons/IconSponsorMe.vue';
+import IconTest from '@/components/icons/IconTest.vue';
+import { ref, type Ref } from 'vue';
 
 const props = defineProps<{
   wndActive: boolean;
@@ -80,13 +80,14 @@ function getLogoUrl(name: string) {
 .main-side {
   display: flex;
   flex-direction: column;
+
   user-select: none;
   -webkit-user-drag: none;
 
   .logo {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 100%;
     height: 60px;
 
@@ -97,12 +98,13 @@ function getLogoUrl(name: string) {
 
     span {
       margin: 0 8px;
-      font-family: 'logo-LeagueTool';
-      font-size: 20px;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-image: linear-gradient(45deg, #00ffea, #6673ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-size: 20px;
+      font-family: 'logo-LeagueTool';
+
+      -webkit-text-fill-color: transparent;
 
       &.blur {
         background-image: linear-gradient(45deg, #00e6d2, #4d5bff);
@@ -120,8 +122,8 @@ function getLogoUrl(name: string) {
 
       .menu-title {
         margin: 8px;
-        font-size: 12px;
         color: #8e8e8e;
+        font-size: 12px;
       }
 
       .menu-href {
@@ -130,12 +132,12 @@ function getLogoUrl(name: string) {
         margin: 8px 0;
         padding: 0 8px;
         height: 30px;
-        font-size: 14px;
-        text-decoration: none;
         border-radius: 4px;
-        transition: background-color 0.15s;
-        cursor: default;
         color: #d1d1d1;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: default;
+        transition: background-color 0.15s;
 
         &.router-link-active {
           background-color: #4d5bff;

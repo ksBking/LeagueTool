@@ -9,8 +9,8 @@
 </template>
 
 <script setup lang="ts">
-import IconMinus from '@/components/icons/IconMinus.vue';
 import IconClose from '@/components/icons/IconClose.vue';
+import IconMinus from '@/components/icons/IconMinus.vue';
 
 function setWnd(value: 'minimize' | 'close') {
   window.electronAPI.mainWnd.setWnd(value);
@@ -24,8 +24,8 @@ const props = defineProps({
 <style lang="scss">
 .main-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 0 16px;
   border-bottom: 1px solid #171718;
   color: #cccccc;
@@ -45,8 +45,8 @@ const props = defineProps({
     display: flex;
     .menu-item {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       width: 36px;
       height: 36px;
       border-radius: 4px;
